@@ -11,7 +11,7 @@ const gameEngine = (game, description) => {
   while (score <= COUNT) {
     const { correctAnswer, answer } = game();
     if (answer === correctAnswer) {
-      console.log('Correct');
+      console.log('Correct!');
       if (score === COUNT) {
         console.log(`Congratulations, ${name}!`);
       }
