@@ -13,3 +13,6 @@
 
 ## brain-gcd game:
 <a href="https://asciinema.org/a/65KShJmiefLr6A3H5xZB3EDLC" target="_blank"><img src="https://asciinema.org/a/65KShJmiefLr6A3H5xZB3EDLC.svg" /></a>
+
+## brain-progression game:
+<a href="https://asciinema.org/a/wfvJUh5xLaE3yZc6f9KBcys7f" target="_blank"><img src="https://asciinema.org/a/wfvJUh5xLaE3yZc6f9KBcys7f.svg" /></a>
