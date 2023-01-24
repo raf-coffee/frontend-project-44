@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import gameEngine from './index.js';
+import gameEngine from '../index.js';
 
 const MIN = 0;
 const MAX = 100;
