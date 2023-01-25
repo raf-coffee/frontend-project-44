@@ -15,7 +15,25 @@ const getRandomExpression = () => {
   return `${operand1} ${operation} ${operand2}`;
 };
 
-const getCorrectAnswer = (expression) => String(eval(expression));
+const getCorrectAnswer = (expression) => {
+  const [num1, operator, num2] = expression.split(' ');
+  let result = 0;
+  switch (operator) {
+    case '-':
+      result = num1 - num2;
+      break;
+    case '+':
+      result = Number(num1) + Number(num2);
+      break;
+    case '*':
+      result = num1 * num2;
+      break;
+    default:
+      break;
+  }
+
+  return String(result);
+};
 
 const getUserAnswer = (expression) => {
   console.log(`Question: ${expression}`);
