@@ -3,7 +3,7 @@ import gameEngine from '../index.js';
 import getAnswers from '../answers-generator.js';
 import getRandomNumber from '../number-generator.js';
 
-const MIN = 0;
+const MIN = 1;
 const MAX = 10;
 const DESC = 'Find the greatest common divisor of given numbers.';
 
