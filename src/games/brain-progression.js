@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import gameEngine from '../index.js';
+import getAnswers from '../answers-generator.js';
 import getRandomNumber from '../number-generator.js';
 
 const MIN_LENGTH = 5;
@@ -36,14 +37,6 @@ const getUserAnswer = (expression) => {
   return readlineSync.question('Your answer: ');
 };
 
-const brainProgression = () => {
-  const expression = getRandomExpression();
-  const correctAnswer = getCorrectAnswer(expression);
-  const answer = getUserAnswer(expression);
-  return {
-    correctAnswer,
-    answer,
-  };
-};
+const brainProgression = () => getAnswers(getRandomExpression, getCorrectAnswer, getUserAnswer);
 
 export default () => gameEngine(brainProgression, DESC);

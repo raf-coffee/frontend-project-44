@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import gameEngine from '../index.js';
+import getAnswers from '../answers-generator.js';
 
 const MIN = 2;
 const MAX = 100;
@@ -24,14 +25,6 @@ const getUserAnswer = (expression) => {
   return readlineSync.question('Your answer: ').toLowerCase();
 };
 
-const brainPrime = () => {
-  const expression = getRandomExpression();
-  const correctAnswer = getCorrectAnswer(expression);
-  const answer = getUserAnswer(expression);
-  return {
-    correctAnswer,
-    answer,
-  };
-};
+const brainPrime = () => getAnswers(getRandomExpression, getCorrectAnswer, getUserAnswer);
 
 export default () => gameEngine(brainPrime, DESC);

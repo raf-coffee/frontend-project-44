@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
 import gameEngine from '../index.js';
+import getAnswers from '../answers-generator.js';
+import getRandomNumber from '../number-generator.js';
 
 const MIN = 0;
 const MAX = 10;
@@ -16,8 +18,8 @@ const getGCD = (num1, num2) => {
 };
 
 const getRandomExpression = () => {
-  const operand1 = Math.floor(MIN + Math.random() * (MAX + 1 - MIN));
-  const operand2 = Math.floor(MIN + Math.random() * (MAX + 1 - MIN));
+  const operand1 = getRandomNumber(MIN, MAX);
+  const operand2 = getRandomNumber(MIN, MAX);
   return `${operand1} ${operand2}`;
 };
 
@@ -32,14 +34,6 @@ const getUserAnswer = (expression) => {
   return Number.isNaN(Number(answer)) ? answer : Number(answer);
 };
 
-const brainGcd = () => {
-  const expression = getRandomExpression();
-  const correctAnswer = getCorrectAnswer(expression);
-  const answer = getUserAnswer(expression);
-  return {
-    correctAnswer,
-    answer,
-  };
-};
+const brainCalc = () => getAnswers(getRandomExpression, getCorrectAnswer, getUserAnswer);
 
-export default () => gameEngine(brainGcd, DESC);
+export default () => gameEngine(brainCalc, DESC);

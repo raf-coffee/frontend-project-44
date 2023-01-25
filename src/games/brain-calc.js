@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
 import gameEngine from '../index.js';
+import getAnswers from '../answers-generator.js';
+import getRandomNumber from '../number-generator.js';
 
 const MIN = 0;
 const MAX = 10;
@@ -7,8 +9,8 @@ const OPERATIONS = ['+', '-', '*'];
 const DESC = 'What is the result of the expression?';
 
 const getRandomExpression = () => {
-  const operand1 = Math.floor(MIN + Math.random() * (MAX + 1 - MIN));
-  const operand2 = Math.floor(MIN + Math.random() * (MAX + 1 - MIN));
+  const operand1 = getRandomNumber(MIN, MAX);
+  const operand2 = getRandomNumber(MIN, MAX);
   const operation = OPERATIONS[Math.floor(Math.random() * OPERATIONS.length)];
   return `${operand1} ${operation} ${operand2}`;
 };
@@ -20,14 +22,6 @@ const getUserAnswer = (expression) => {
   return readlineSync.question('Your answer: ');
 };
 
-const brainCalc = () => {
-  const expression = getRandomExpression();
-  const correctAnswer = getCorrectAnswer(expression);
-  const answer = getUserAnswer(expression);
-  return {
-    correctAnswer,
-    answer,
-  };
-};
+const brainCalc = () => getAnswers(getRandomExpression, getCorrectAnswer, getUserAnswer);
 
 export default () => gameEngine(brainCalc, DESC);
